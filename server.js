@@ -50,6 +50,10 @@ var server = http.createServer(function (request, response) {
         h1{color: red}
         `)
         response.end()
+    } else if (path === '/302') {
+        response.statusCode = 302
+        response.setHeader('Location', 'http://www.google.com/')
+        response.end()
     } else {
         response.statusCode = 404
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
